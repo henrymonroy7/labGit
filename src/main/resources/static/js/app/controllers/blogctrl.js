@@ -28,4 +28,33 @@ app.controller("blogCtrl", function($scope,$log,$http) {
         });
     };
     $scope.loadData();
+    
+    $scope.editForm = function() {
+        $log.debug($scope.entry);
+        $http({
+            method  : 'PUT',
+            url     : 'blog',
+            data    : $scope.entry
+        }).success(function(data) {
+            console.log(data);
+            $scope.loadData();
+        }).error(function(data,status,headers,config) {
+            alert("Ha fallado la petición. Estado HTTP:"+status);
+        });
+    };
+    
+    $scope.deleteForm = function(index) {
+        $log.debug($scope.entry);
+        $http({
+            method  : 'POST',
+            url     : 'blog/'+index,
+            data    : index
+        }).success(function(data) {
+            console.log(data);
+            $scope.loadData();
+        }).error(function(data,status,headers,config) {
+            alert("Ha fallado la petición. Estado HTTP:"+status);
+        });
+    };
+    
 });

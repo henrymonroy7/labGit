@@ -11,12 +11,7 @@
     </head>
     <body ng-controller="blogCtrl">
             <div>
-          <!--<form>
-            <fieldset>
-                <legend>Entry</legend>
-                <label for='title'>Title:</label><input id='title' name='title' type="text" ng-model= "entry.title">
-                <label for='content'>Content:</label><input id='content' name='content' type="text" ng-model= "entry.content">
-          </form>-->
+          
 	<form ng-submit="processForm()">
             <fieldset>
                 <legend>Entry</legend>
@@ -38,8 +33,11 @@
             <td> {{ e.title }} </td>
             <td> {{ e.content }} </td>
             <td>
-              <button type="button" class="btn btn-warning"  ng-click="edit($index)">
+              <button type="button" class="btn btn-warning"  ng-click="editForm($index,entry)">
                 Editar
+              </button>
+              <button type="button" class="btn btn-warning"  ng-click="deleteForm($index)">
+                Eliminar
               </button>
             </td>
           </tr>

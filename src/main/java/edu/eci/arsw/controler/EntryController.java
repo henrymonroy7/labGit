@@ -31,5 +31,24 @@ public class EntryController {
         entries.add(p);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
+    
+    @RequestMapping(method = RequestMethod.PUT,value = "/blog")
+    public  ResponseEntity<?>  editEntry(@RequestBody Entry p) {        
+        for(Entry e:entries){
+            if(e.getTitle().equalsIgnoreCase(p.getTitle()) || e.getContent().equalsIgnoreCase(p.getContent())){
+                e.setTitle(p.getTitle());
+                e.setContent(p.getContent());                
+            }
+        }
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+        
+    }
+    
+    @RequestMapping(method = RequestMethod.POST,value = "/blog/{index}")
+    public  ResponseEntity<?>  deleteEntry(@RequestBody int index) {        
+        entries.remove(index);
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+        
+    }
 
 }
