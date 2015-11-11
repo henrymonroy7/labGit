@@ -2,7 +2,7 @@
 <html ng-app="app">
     <head >
         <script src="js/angular.min.js"></script>
-        <script src="js/app/controller/blogctrl.js"></script>
+        <script src="js/app/controllers/blogctrl.js"></script>
 
         <link rel="stylesheet" href="css/bootstrap.css">
         <title>Blog</title>
@@ -11,12 +11,12 @@
     </head>
     <body ng-controller="blogCtrl">
             <div>
-          <form>
+          <!--<form>
             <fieldset>
                 <legend>Entry</legend>
                 <label for='title'>Title:</label><input id='title' name='title' type="text" ng-model= "entry.title">
                 <label for='content'>Content:</label><input id='content' name='content' type="text" ng-model= "entry.content">
-          </form>
+          </form>-->
 	<form ng-submit="processForm()">
             <fieldset>
                 <legend>Entry</legend>
